@@ -11,10 +11,8 @@ import com.oracle.spring_account_service.entity.Account;
 
 @Service
 public class AccountServiceImpl {
-
 	@Autowired
 	private AccountRepository accountDao;
-	
 	@Transactional
 	public Account createAccount(Account account) {
 		return accountDao.save(account);
@@ -29,5 +27,8 @@ public class AccountServiceImpl {
 	}
 	public List<Account> findAllAccounts() {
 		return accountDao.findAll();
+	}
+	public Account findAccount(int id) {
+		return accountDao.findById(id).get();
 	}
 }
